@@ -775,59 +775,6 @@ static void load_override_properties() {
 
 
 /* From Magisk@jni/magiskhide/hide_utils.c */
-static const char *snet_prop_key[] = {
-	"ro.boot.vbmeta.device_state",
-	"ro.boot.verifiedbootstate",
-	"ro.boot.flash.locked",
-	"ro.boot.selinux",
-	"ro.boot.veritymode",
-	"ro.boot.warranty_bit",
-	"ro.warranty_bit",
-	"ro.debuggable",
-	"ro.secure",
-	"ro.build.type",
-	"ro.build.keys",
-	"ro.build.tags",
-	"ro.system.build.tags",
-	"ro.build.selinux",
-	"ro.vendor.boot.warranty_bit",
-	"ro.vendor.warranty_bit",
-	"vendor.boot.vbmeta.device_state",
-	"vendor.boot.verifiedbootstate",
-	NULL
-};
-
-static const char *snet_prop_value[] = {
-	"locked",
-	"green",
-	"1",
-	"enforcing",
-	"enforcing",
-	"0",
-	"0",
-	"0",
-	"1",
-	"user",
-	"release-keys",
-	"release-keys",
-	"release-keys",
-	"0",
-	"0",
-	"0",
-	"locked",
-	"green",
-	NULL
-};
-
-static void workaround_snet_properties() {
-	std::string error;
-	LOG(INFO) << "snet: Hiding sensitive props";
-
-	// Hide all sensitive props
-	for (int i = 0; snet_prop_key[i]; ++i) {
-		PropertySet(snet_prop_key[i], snet_prop_value[i], &error);
-	}
-}
 
 static const char *snet_prop_key[] = {
 	"ro.boot.vbmeta.device_state",
